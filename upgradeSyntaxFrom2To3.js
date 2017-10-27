@@ -10,27 +10,16 @@ if (process.argv.length <= 2) {
   process.exit(1);
 }
 const filesToMigrate = process.argv.slice(2);
-console.log(`\u{1b}[36m
-***
-Starting Reason syntax version 2 -> version 3 migration!
+console.log(`\u{1b}[36mStarting Reason syntax 2 -> 3 migration!\u{1b}[39m Note that this is just a dumb script that takes all your files and do:
 
-Note that this is just a dumb script that takes all your files and do:
-
-  ./node_modules/bs-platform/bin/refmt.exe --print binary_reason foo.re | ./node_modules/bs-platform/bin/refmt2.exe --parse binary_reason --print re
-
-Things to do after the codemod:
-
-- Run the build system again and see nothing errored.
-- If you've checked in the JS artifacts, make sure they didn't change. Your artifacts are your snapshot tests =)
-
-***
-\u{1b}[39m`)
+  ./node_modules/bs-platform/bin/refmt.exe --print binary_reason foo.re | ./node_modules/bs-platform/bin/refmt2.exe --parse binary_reason --print re`)
 
 let filesThatAreBackups = [];
 let filesThatAreNotReason = [];
 let filesThatAreInvalid = [];
 let filesThatHaveBackups = [];
 const binariesRoot = path.join('.', 'node_modules', 'bs-platform', 'bin');
+const bsconfig = path.join('.', 'bsconfig.json');
 
 function migrate(files) {
   const oldBinary = path.join(binariesRoot, 'refmt.exe');
@@ -116,14 +105,21 @@ The follow files are skipped, because they already have their backup (and are th
       console.log(filesThatHaveBackups.map(f => '- ' + f).join('\n'));
   }
 
+  const fileContent = fs.readFileSync(bsconfig, {encoding: 'utf-8'});
+  const addRefmt3ToBsconfig = (fileContent.indexOf('refmt') === -1)
+    ? `\u{1b}[36mPlease add \`"refmt": 3\` to your \`bsconfig.json\`\u{1b}[39m`
+    : `Add \`"refmt": 3\` to your \`bsconfig.json\`, then run the build again to verify that nothing errored.`;
+
   console.log(`\u{1b}[36m
-All done. We've kept a copy of your old code at \`yourFileName.backup.re\`.
-Feel free to examine them, then delete them.
+All done! IMPORTANT things to do after the codemod:\u{1b}[39m
 
-If there's any change to your build or artifacts, please check and file us an issue. Apologies in advance; it's been a really big refactoring.
+- We've backed up your old code at \`yourFileName.backup\`. Feel free to examine & delete them.
+- ${addRefmt3ToBsconfig}
+- If you've checked in the JS artifacts, make sure they didn't change. Your artifacts are your snapshot tests =)
 
-Thank you!
-\u{1b}[39m`);
+If there's any change to your build or artifacts, please check and file us an issue. Apologies in advance; it's a big refactoring.
+
+Thank you!`);
 }
 
 migrate(filesToMigrate);
