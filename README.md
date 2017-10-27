@@ -2,7 +2,8 @@
 
 ## What is Reason 2/3?
 
-See the announcement here: https://github.com/facebook/reason/blob/master/HISTORY.md#300.
+See the announcement here: https://reasonml.github.io/community/blog/#reason-3
+And the changelog guide here: https://github.com/facebook/reason/blob/master/HISTORY.md#300
 
 ## How do I upgrade my project?
 
@@ -14,9 +15,13 @@ npm install --save-dev bs-platform@2.0.0
 upgradeSyntaxFrom2To3 mySource/*
 ```
 
-The script accepts a list of files to convert. It'll intelligently skip over any file that's not Reason.
+The script accepts a list of files/globs to convert. Pass as many as you want. It'll intelligently skip over any file that's not Reason.
 
-After you're gone converting your projects, feel free to uninstall this library!
+After you're done converting your projects:
+
+- Remove the backup files at `mySource/*.backup`
+- Add `"refmt": 3` to your bsconfig.json to make BuckleScript use the new syntax.
+- Feel free to uninstall this library!
 
 ## How does it work?
 
