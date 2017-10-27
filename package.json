@@ -1,0 +1,20 @@
+{
+  "name": "upgrade-reason-syntax",
+  "version": "1.0.0-beta1",
+  "description": "",
+  "main": "upgradeSyntaxFrom2To3.js",
+  "bin": {
+    "upgradeSyntaxFrom2To3": "./upgradeSyntaxFrom2To3.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reasonml/upgradeSyntaxFrom2To3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reasonml/upgradeSyntaxFrom2To3/issues"
+  },
+  "homepage": "https://github.com/reasonml/upgradeSyntaxFrom2To3#readme"
+}
