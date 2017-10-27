@@ -23,6 +23,8 @@ After you're done converting your projects:
 - Add `"refmt": 3` to your bsconfig.json to make BuckleScript use the new syntax.
 - Feel free to uninstall this library!
 
+**If you're on native**, this is also your workflow. (So you'll need node.js).
+
 ## How does it work?
 
 It's a simple node.js script that takes the old `refmt` and the new `refmt3` from your project's BuckleScript 2.0.0's source at `node_modules/bs-platform`, and then:
