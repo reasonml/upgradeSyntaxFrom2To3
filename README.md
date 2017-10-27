@@ -22,7 +22,8 @@ After you're gone converting your projects, feel free to uninstall this library!
 
 It's a simple node.js script that takes the old `refmt` and the new `refmt3` from your project's BuckleScript 2.0.0's source at `node_modules/bs-platform`, and then:
 
+- Iterates over all your relevant files, making a backup copy
 - Turns your Reason files into an AST (abstract syntax tree) using `refmt`
-- Turns the ASTs into the new syntax using `refmt3`
+- Turns the ASTs into the new syntax using `refmt3` and writes them back
 
 That's it! Enjoy =)

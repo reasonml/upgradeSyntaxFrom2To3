@@ -1,6 +1,6 @@
 {
   "name": "upgrade-reason-syntax",
-  "version": "1.0.0-beta2",
+  "version": "1.0.0",
   "description": "",
   "main": "upgradeSyntaxFrom2To3.js",
   "bin": {
