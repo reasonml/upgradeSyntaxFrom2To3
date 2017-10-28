@@ -2,10 +2,19 @@
 
 ## What is Reason 2/3?
 
-See the announcement here: https://reasonml.github.io/community/blog/#reason-3
-And the changelog guide here: https://github.com/facebook/reason/blob/master/HISTORY.md#300
+See the [announcement](https://reasonml.github.io/community/blog/#reason-3)
+and the [changelog guide](https://github.com/facebook/reason/blob/master/HISTORY.md#300).
 
 ## How do I upgrade my project?
+
+### Before you start
+
+Converting your code to to the new syntax is done by running the
+`upgradeSyntaxFrom2To3` converter on your project's Reason code.
+Make sure that your project is syntactically valid in Reason 2.x.
+Invalid code will fail to convert.
+
+### Convert your code
 
 Do this at the root of your project:
 
