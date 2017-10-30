@@ -2,10 +2,19 @@
 
 ## What is Reason 2/3?
 
-See the announcement here: https://reasonml.github.io/community/blog/#reason-3
-And the changelog guide here: https://github.com/facebook/reason/blob/master/HISTORY.md#300
+See the [announcement](https://reasonml.github.io/community/blog/#reason-3)
+and the [changelog guide](https://github.com/facebook/reason/blob/master/HISTORY.md#300).
 
 ## How do I upgrade my project?
+
+### Before you start
+
+Converting your code to to the new syntax is done by running the
+`upgradeSyntaxFrom2To3` converter on your project's Reason code.
+Make sure that your project is syntactically valid in Reason 2.
+Invalid code will fail to convert.
+
+### Convert your code
 
 Do this at the root of your project:
 
@@ -15,7 +24,7 @@ npm install --save-dev bs-platform@2.0.0
 upgradeSyntaxFrom2To3 mySource/*
 ```
 
-**Make sure you did install bs-platform 2.0.0**. Sometimes your lockfile might have locked it to `1.x`.
+**Make sure you did install bs-platform 2.0.0**. Sometimes your lockfile might have locked it to `1.x.x`.
 
 The script accepts a list of files/globs to convert. Pass as many as you want. It'll intelligently skip over any file that's not Reason.
 
