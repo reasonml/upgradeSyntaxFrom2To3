@@ -43,7 +43,7 @@ function migrate(files) {
       : `Add \`"refmt": 3\` to your \`bsconfig.json\`, then run the build again to verify that nothing errored.`;
   } else {
     console.log(`${cyan}
-We can't found a bsconfig.json file in this project${cyanEnd}; did you invoke the upgrade command at the right place?`);
+We can't find a bsconfig.json file in this project${cyanEnd}; did you invoke the upgrade command at the right place?`);
     return;
   }
 
