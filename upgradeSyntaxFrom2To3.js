@@ -15,17 +15,20 @@ const cyanEnd = '\u{1b}[39m';
 const dim = '\u{1b}[2m';
 const dimEnd = '\u{1b}[22m';
 
+const binariesRoot = path.join('.', 'node_modules', 'bs-platform', 'lib');
+const oldBinary = path.join(binariesRoot, 'refmt.exe');
+const newBinary = path.join(binariesRoot, 'refmt3.exe');
+
 const filesToMigrate = process.argv.slice(2);
 console.log(`${cyan}Starting Reason syntax 2 -> 3 migration!${cyanEnd}
 ${dim}Note that this is just a dumb script that takes all your files and do:
 
-  ./node_modules/bs-platform/bin/refmt.exe --print binary_reason foo.re | ./node_modules/bs-platform/bin/refmt2.exe --parse binary_reason --print re${dimEnd}
+  ${oldBinary} --print binary_reason foo.re | ${newBinary} --parse binary_reason --print re${dimEnd}
 `)
 
 let filesThatAreBackups = [];
 let filesThatAreInvalid = [];
 let filesThatHaveBackups = [];
-const binariesRoot = path.join('.', 'node_modules', 'bs-platform', 'bin');
 const bsconfig = path.join('.', 'bsconfig.json');
 
 const packageLock = path.join('.', 'package-lock.json');
@@ -46,9 +49,6 @@ function migrate(files) {
 We can't find a bsconfig.json file in this project${cyanEnd}; did you invoke the upgrade command at the right place?`);
     return;
   }
-
-  const oldBinary = path.join(binariesRoot, 'refmt.exe');
-  const newBinary = path.join(binariesRoot, 'refmt3.exe');
 
   files.forEach((file) => {
     const extension = path.extname(file);

@@ -20,11 +20,11 @@ Do this at the root of your project:
 
 ```
 npm install -g upgrade-reason-syntax
-npm install --save-dev bs-platform@2.0.0
+npm install --save-dev bs-platform@2.1.0
 upgradeSyntaxFrom2To3 mySource/*
 ```
 
-**Make sure you did install bs-platform 2.0.0**. Sometimes your lockfile might have locked it to `1.x.x`.
+**Make sure you did install bs-platform 2.1.0**. Sometimes your lockfile might have locked it to `1.x.x`.
 
 The script accepts a list of files/globs to convert. Pass as many as you want. It'll intelligently skip over any file that's not Reason.
 
