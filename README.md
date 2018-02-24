@@ -20,7 +20,7 @@ Do this at the root of your project:
 
 ```
 npm install -g upgrade-reason-syntax
-npm install --save-dev bs-platform@2.1.0
+npm install --save-dev bs-platform@2.2.1
 upgradeSyntaxFrom2To3 mySource/*
 ```
 
