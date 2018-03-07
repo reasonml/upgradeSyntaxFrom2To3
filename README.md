@@ -24,7 +24,7 @@ npm install --save-dev bs-platform@2.2.2
 upgradeSyntaxFrom2To3 mySource/*
 ```
 
-**Make sure you did install bs-platform 2.2.1**. Sometimes your lockfile might have locked it to `1.x.x`. 2.2.1 is also the **last** version to support Reason syntax 2.
+**Make sure you did install bs-platform 2.2.2**. Sometimes your lockfile might have locked it to `1.x.x`. 2.2.2 is also the **last** version to support Reason syntax 2.
 
 The script accepts a list of files/globs to convert. Pass as many as you want. It'll intelligently skip over any file that's not Reason.
 
